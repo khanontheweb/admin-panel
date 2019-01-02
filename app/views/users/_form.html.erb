@@ -10,48 +10,40 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :first_name %>
-    <%= form.text_field :first_name %>
+  <div class="form-row mb-2">
+    <div class="col">
+      <%= form.text_field :first_name, class: "form-control", placeholder:"First Name"%>
+    </div>
+    <div class="col">
+      <%= form.text_field :last_name, class: "form-control", placeholder:"Last Name"%>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name %>
+  <div class="form-row mb-2">
+    <div class="col-sm-10">
+      <%= form.email_field :email, class: "form-control", placeholder:"email@example.com" %>
+    </div>
+    <div class="col">
+      <%= form.number_field :age, class: "form-control", placeholder:"Age (20, 21...149)"%>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
+  <div class="form-row mb-2">
+    <div class="col">
+      <%= form.select(:education_id, [['High School', 1],['Bachelor\'s', 2], ['Master\'s',3], ['PhD', 4]])  %>
+    </div>
+    <div class="col">
+      <%= form.select(:permission_id, [['Admin', 1],['Instructor', 2], ['Student',3]]) %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :age %>
-    <%= form.number_field :age %>
-  </div>
-
-  <div class="field">
-    <%= form.label :education_id %>
-    <%= form.select(:education_id, [['High School', 1],['Bachelor\'s', 2], ['Master\'s',3], ['PhD', 4]])  %>
-  </div>
-
-  <div class="field">
-    <%= form.label :permission_id %>
-    <%= form.select(:permission_id, [['Admin', 1],['Instructor', 2], ['Student',3]]) %>
-  </div>
-
-  <div class="field">
-    <%= form.label :password %>
-    <%= form.password_field :password %>
-  </div>
-
-  <div class="field">
-    <%= form.label :password_confirmation %>
-    <%= form.password_field :password_confirmation %>
+  <div class="form-row mb-2">
+    <div class="col">
+      <%=form.password_field :password, class:"form-control", placeholder:"Password Minimum 8 Chars"%>
+    </div>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit :Submit, class: "btn btn-success btn-block" %>
   </div>
 <% end %>

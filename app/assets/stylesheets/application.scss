@@ -12,5 +12,15 @@
  *
 
  */
-
  @import "bootstrap";
+ @import "cohorts";
+ @import "courses";
+ @import "pages";
+ @import "sessions";
+ @import "users";
+
+ html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
