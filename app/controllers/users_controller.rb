@@ -12,6 +12,10 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def add
+    @user = User.new
+  end
+
   def edit
   end
 
@@ -19,6 +23,11 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     respond_to do |format|
       if @user.save
+        p "This is the  referer #{request.referer}"
+        #CHANGE THIS LATER FOR HEROKU PLS FOR ALL THAT IS HOLY or find a better hack
+        if request.referer == 'http://localhost:3000/' || request.referer == 'http://localhost:3000/signup'
+          session[:user_id] = @user.id
+        end
         format.html {redirect_to @user, notice: 'User was successfully created.' }
         format.json {render :show, status: :created, location: @user}
       else
@@ -41,11 +50,17 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
-      format.json { head :no_content }
+      format.js
+      #format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+      #format.json { head :no_content }
     end
+    @user.destroy
+    id = @user.id
+    if id == session[:user_id]
+      redirect_to logout_url
+    end
+
   end
 
   private

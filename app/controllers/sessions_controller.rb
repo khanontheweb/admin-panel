@@ -1,8 +1,10 @@
 class SessionsController < ApplicationController
   def new
+    p 'hehexd new'
   end
 
   def create
+    p 'hehexd'
     user = User.find_by_email(params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id

@@ -2,14 +2,14 @@
   <div class="row align-items-center text-center">
     <div class="col">
       <h1 class="mb-0">Bootcamp Panel</h1>
-      <% if current_user %>
-        <% controller.redirect_to users_url%>
-      <% else %>
+      <% if !current_user %>
         <h2 class="mb-2">Sign Up</h2>
         <%= render 'form', user: @user %>
         <p>Already have an account? <%= link_to "Log In", login_path %></p>
-
+      <%else%>
+        <% controller.redirect_to users_url %>
       <%end%>
+
     </div>
   </div>
 
