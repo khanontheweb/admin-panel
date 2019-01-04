@@ -24,6 +24,7 @@ class CohortsController < ApplicationController
   # POST /cohorts
   # POST /cohorts.json
   def create
+    assign_instructors
     @cohort = Cohort.new(cohort_params)
 
     respond_to do |format|
@@ -69,6 +70,10 @@ class CohortsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cohort_params
-      params.require(:cohort).permit(:name, :start_date, :end_date)
+      params.require(:cohort).permit(:name, :start_date, :end_date, :course_i)
+    end
+
+    def assign_instructors
+      p "This is the instructor #{params[:instructors]}"
     end
 end

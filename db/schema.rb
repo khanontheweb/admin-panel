@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_02_202532) do
+ActiveRecord::Schema.define(version: 2019_01_04_194058) do
 
   create_table "cohorts", force: :cascade do |t|
     t.string "name"
     t.date "start_date"
     t.date "end_date"
+    t.integer "course_i"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -25,6 +26,22 @@ ActiveRecord::Schema.define(version: 2019_01_02_202532) do
     t.integer "hours"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "instructors", force: :cascade do |t|
+    t.integer "instructor_id"
+    t.integer "cohort_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cohort_id"], name: "index_instructors_on_cohort_id"
+  end
+
+  create_table "students", force: :cascade do |t|
+    t.integer "student_id"
+    t.integer "cohort_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cohort_id"], name: "index_students_on_cohort_id"
   end
 
   create_table "test_scaffolds", force: :cascade do |t|

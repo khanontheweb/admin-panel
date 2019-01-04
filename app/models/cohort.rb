@@ -1,3 +1,6 @@
 class Cohort < ApplicationRecord
-  has_many :instructors, :students
+  has_many :instructors
+  has_many :students
+
+
 end

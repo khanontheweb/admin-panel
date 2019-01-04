@@ -17,23 +17,18 @@
       <%= form.text_field :name, class: "form-control", placeholder:"Cohort Name"%>
     </div>
     <div class="col">
-      <%= form.select(:course_id, options_for_select(Course.all, :id, :name)), :prompt=>"Course"%>
+      <%= form.select(:course_i, options_from_collection_for_select(Course.all, :id, :name), :prompt=>"Course")%>
     </div>
   </div>
 
   <div class="form-row mb-2">
     <div class="col">
+      <%= select_tag "instructors", options_from_collection_for_select(instructors, :id, :first_name) %>
     </div>
     <div class="col"></div>
   </div>
-  <div class="form-row mb-2">
-    <div class="col"></div>
-    <div class="col"></div>
-  </div>
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+
+
 
   <div class="field">
     <%= form.label :start_date %>
