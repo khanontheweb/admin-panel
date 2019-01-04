@@ -7,3 +7,11 @@ module ApplicationHelper
     end
   end
 end
+
+def instructors
+  return User.where("permission_id = '2'");
+end
+
+def students
+  return User.where("permission_id = '3'");
+end
