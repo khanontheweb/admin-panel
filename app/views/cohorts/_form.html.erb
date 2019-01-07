@@ -23,7 +23,12 @@
 
   <div class="form-row mb-2">
     <div class="col">
-      <%= select_tag "instructors", options_from_collection_for_select(instructors, :id, :first_name) %>
+      <select class="selectpicker" data-live-search="true" multilple>
+        <%instructors.each do |instructor|%>
+          <option value="<%=instructor.id%>"><%=instructor.first_name + " "  + instructor.last_name%></option>
+        <%end%>
+      </select>
+      <%# select_tag "instructors", options_from_collection_for_select(instructors, :id, :first_name), class: "selectpicker", data: {"live-search": true}%>
     </div>
     <div class="col"></div>
   </div>
