@@ -15,3 +15,7 @@ end
 def students
   return User.where("permission_id = '3'")
 end
+
+def course_of_cohort(cohort)
+  return Course.where("id = #{cohort.course_i}")
+end

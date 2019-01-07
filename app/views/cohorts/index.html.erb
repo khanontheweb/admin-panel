@@ -2,30 +2,61 @@
 
 <h1>Cohorts</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Start date</th>
-      <th>End date</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @cohorts.each do |cohort| %>
-      <tr>
-        <td><%= cohort.name %></td>
-        <td><%= cohort.start_date %></td>
-        <td><%= cohort.end_date %></td>
-        <td><%= link_to 'Show', cohort %></td>
-        <td><%= link_to 'Edit', edit_cohort_path(cohort) %></td>
-        <td><%= link_to 'Destroy', cohort, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      Name
+      <%@cohorts.each do |cohort|%>
+        <div class="row">
+          <div class="col">
+            <%=cohort.name%>
+          </div>
+        </div>
+      <%end%>
+    </div>
+    <div class="col">
+      Course
+      <%@cohorts.each do |cohort|%>
+        <div class="row">
+          <div class="col">
+            <%=course_of_cohort(cohort).name%>
+          </div>
+        </div>
+      <%end%>
+    </div>
+    <div class="col">
+      Start Date
+      <%@cohorts.each do |cohort|%>
+        <div class="row">
+          <div class="col">
+            <%=cohort.start_date%>
+          </div>
+        </div>
+      <%end%>
+    </div>
+    <div class="col">
+      End Date
+      <%@cohorts.each do |cohort|%>
+        <div class="row">
+          <div class="col">
+            <%=cohort.end_date%>
+          </div>
+        </div>
+      <%end%>
+    </div>
+    <div class="col">
+      Options
+      <%@cohorts.each do |cohort|%>
+        <div class="row">
+          <div class="col">
+            <%= link_to 'Show', cohort %>
+            <%= link_to 'Edit', edit_cohort_path(cohort) %>
+            <%= link_to 'Destroy', cohort, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
+        </div>
+      <%end%>
+    </div>
+  </div>
+</div>
 
 <%= link_to 'New Cohort', new_cohort_path %>
