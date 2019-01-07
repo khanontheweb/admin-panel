@@ -33,6 +33,11 @@ class CohortsController < ApplicationController
         instructors.each do |instructor|
           instructor = @cohort.instructors.create(instructor_id: instructor)
         end
+
+        students = params[:students]
+        students.each do |student|
+          student = @cohort.students.create(student_id: student)
+        end
         format.html { redirect_to @cohort, notice: 'Cohort was successfully created.' }
         format.json { render :show, status: :created, location: @cohort }
       else

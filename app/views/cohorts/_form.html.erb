@@ -31,6 +31,16 @@
 
   </div>
 
+  <div class="form-row mb-2">
+    <div class="col">
+      <%= select_tag "students", options_from_collection_for_select(students, :id, :first_name), {:multiple => true, class: "selectpicker", data:{"live-search":true, "selected-text-format": "static"}, title: "Students Below"}%>
+    </div>
+  </div>
+
+  <div class="form-row mb-2" id="selected_students">
+
+  </div>
+
 
   <div class="form-row mb-2">
     <%= form.label :start_date %>
