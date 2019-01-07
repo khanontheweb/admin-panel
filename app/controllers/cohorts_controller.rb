@@ -24,11 +24,15 @@ class CohortsController < ApplicationController
   # POST /cohorts
   # POST /cohorts.json
   def create
-    assign_instructors
+    
     @cohort = Cohort.new(cohort_params)
 
     respond_to do |format|
       if @cohort.save
+        instructors = params[:instructors]
+        instructors.each do |instructor|
+          instructor = @cohort.instructors.create(instructor_id: instructor)
+        end
         format.html { redirect_to @cohort, notice: 'Cohort was successfully created.' }
         format.json { render :show, status: :created, location: @cohort }
       else
@@ -75,5 +79,6 @@ class CohortsController < ApplicationController
 
     def assign_instructors
       p "This is the instructor #{params[:instructors]}"
+      @instructors = params[:instructors]
     end
 end

@@ -23,29 +23,29 @@
 
   <div class="form-row mb-2">
     <div class="col">
-      <select class="selectpicker" data-live-search="true" multilple>
-        <%instructors.each do |instructor|%>
-          <option value="<%=instructor.id%>"><%=instructor.first_name + " "  + instructor.last_name%></option>
-        <%end%>
-      </select>
-      <%# select_tag "instructors", options_from_collection_for_select(instructors, :id, :first_name), class: "selectpicker", data: {"live-search": true}%>
+      <%= select_tag "instructors", options_from_collection_for_select(instructors, :id, :first_name), {:multiple => true, class: "selectpicker",data: {"live-search": true, "selected-text-format": "static"}, title: "Instructors Below"}%>
     </div>
-    <div class="col"></div>
+  </div>
+
+  <div class="form-row mb-2" id="selected_instructors">
+
   </div>
 
 
-
-  <div class="field">
+  <div class="form-row mb-2">
     <%= form.label :start_date %>
     <%= form.date_select :start_date %>
   </div>
 
-  <div class="field">
+  <div class="form-row mb-2">
     <%= form.label :end_date %>
     <%= form.date_select :end_date %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit :Submit, class: 'btn btn-success' %>
   </div>
 <% end %>
+
+<%= javascript_include_tag 'cohort_form.js' %>
+
