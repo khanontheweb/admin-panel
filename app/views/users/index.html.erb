@@ -1,64 +1,77 @@
+<%= stylesheet_link_tag 'user_index' %>
+
 <p id="notice"><%= notice %></p>
 
 <h1>Users</h1>
 
-<div class="container index-table">
+
+<div class="container-fluid">
   <div class="row">
     <div class="col">
       First Name
       <%@users.each do |user|%>
-        <div class="row">
-          <%=user.first_name%>
+        <div class="row ">
+          <div class="col">
+            <%=user.first_name%>
+          </div>
         </div>
       <%end%>
     </div>
     <div class="col">
       Last Name
       <%@users.each do |user|%>
-        <div class="row">
-          <%=user.last_name%>
+        <div class="row ">
+          <div class="col">
+            <%=user.last_name%>
+          </div>
         </div>
       <%end%>
     </div>
     <div class="col">
       Email
       <%@users.each do |user|%>
-        <div class="row">
-          <%=user.email%>
+        <div class="row ">
+          <div class="col">
+            <%=user.email%>
+          </div>
         </div>
       <%end%>
     </div>
     <div class="col">
       Age
       <%@users.each do |user|%>
-        <div class="row">
-          <%=user.age%>
+        <div class="row ">
+          <div class="col">
+            <%=user.age%>
+          </div>
         </div>
       <%end%>
     </div>
     <div class="col">
       Education
       <%@users.each do |user|%>
-        <div class="row">
+        <div class="row ">
           <%
             if user.education_id == 1
               education = "High School"
             elsif user.education_id == 2
-              education = "Bachelor's Degree"
+              education = "Bachelor's"
             elsif user.education_id == 3
-              education = "Master's Degree"
+              education = "Master's"
             elsif user.education_id == 4
               education = "PhD"
             end
           %>
-          <%= education%>
+          <div class="col">
+            <%= education%>
+          </div>
         </div>
       <%end%>
     </div>
     <div class="col">
       User Type
       <%@users.each do |user|%>
-        <div class="row">
+        <div class="row ">
           <%
             if user.permission_id == 1
               type = "Administrator"
@@ -68,44 +81,43 @@
               type = "Student"
             end
           %>
-          <%= type%>
+            <div class="col">
+              <%= type%>
+            </div>
         </div>
       <%end%>
     </div>
     <div class="col">
       Salary
       <%@users.each do |user|%>
-        <div class="row">
+        <div class="row ">
           <%if user.salary.nil?%>
-            <%=0%>
+            <div class="col">
+              <%=number_to_currency(0, precision:2)%>
+            </div>
           <%else%>
-            <%=number_to_currency(user.salary, precision: 2)%>
+            <div class="col">
+              <%=number_to_currency(user.salary, precision: 2)%>
+            </div>
           <%end%>
         </div>
       <%end%>
     </div>
+    <div class="col">
+      Options
+        <% @users.each do |user| %>
+          <div class="row ">
+           <div class="col">
+            <%= link_to 'Show', user%>
+            <%= link_to 'Edit', edit_user_path(user) %>
+            <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, remote: true %>
+           </div>
+          </div>
+        <%end%>
+      </div>
+    </div>
   </div>
 </div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Email</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @users.each do |user| %>
-      <tr id="user-<%=user.id%>">
-        <td><%= user.email %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, remote: true %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
 <br>
 
