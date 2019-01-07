@@ -2,6 +2,91 @@
 
 <h1>Users</h1>
 
+<div class="container index-table">
+  <div class="row">
+    <div class="col">
+      First Name
+      <%@users.each do |user|%>
+        <div class="row">
+          <%=user.first_name%>
+        </div>
+      <%end%>
+    </div>
+    <div class="col">
+      Last Name
+      <%@users.each do |user|%>
+        <div class="row">
+          <%=user.last_name%>
+        </div>
+      <%end%>
+    </div>
+    <div class="col">
+      Email
+      <%@users.each do |user|%>
+        <div class="row">
+          <%=user.email%>
+        </div>
+      <%end%>
+    </div>
+    <div class="col">
+      Age
+      <%@users.each do |user|%>
+        <div class="row">
+          <%=user.age%>
+        </div>
+      <%end%>
+    </div>
+    <div class="col">
+      Education
+      <%@users.each do |user|%>
+        <div class="row">
+          <%
+            if user.education_id == 1
+              education = "High School"
+            elsif user.education_id == 2
+              education = "Bachelor's Degree"
+            elsif user.education_id == 3
+              education = "Master's Degree"
+            elsif user.education_id == 4
+              education = "PhD"
+            end
+          %>
+          <%= education%>
+        </div>
+      <%end%>
+    </div>
+    <div class="col">
+      User Type
+      <%@users.each do |user|%>
+        <div class="row">
+          <%
+            if user.permission_id == 1
+              type = "Administrator"
+            elsif user.permission_id == 2
+              type = "Instructor"
+            elsif user.permission_id == 3
+              type = "Student"
+            end
+          %>
+          <%= type%>
+        </div>
+      <%end%>
+    </div>
+    <div class="col">
+      Salary
+      <%@users.each do |user|%>
+        <div class="row">
+          <%if user.salary.nil?%>
+            <%=0%>
+          <%else%>
+            <%=number_to_currency(user.salary, precision: 2)%>
+          <%end%>
+        </div>
+      <%end%>
+    </div>
+  </div>
+</div>
+
 <table>
   <thead>
     <tr>
