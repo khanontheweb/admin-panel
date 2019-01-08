@@ -7,7 +7,7 @@
     <div class="col">
       Name
       <% @courses.each do |course| %>
-        <div class="row">
+        <div class="row course-<%=course.id%>">
           <div class="col">
             <%=course.name%>
           </div>
@@ -17,7 +17,7 @@
     <div class="col">
       Hours
       <% @courses.each do |course| %>
-        <div class="row">
+        <div class="row course-<%=course.id%>">
           <div class="col">
             <%=course.hours%>
           </div>
@@ -27,7 +27,7 @@
     <div class="col">
       Options
       <% @courses.each do |course| %>
-        <div class="row">
+        <div class="row course-<%=course.id%>">
           <div class="col">
             <%= link_to 'Show', course %>
             <%= link_to 'Edit', edit_course_path(course) %>

@@ -6,8 +6,8 @@
   <div class="row">
     <div class="col">
       First Name
-      <%@instructors.each do |instructor|%>
-        <div class="row ">
+      <%instructors.each do |instructor|%>
+        <div class="row instructor-<%=instructor.id%>">
           <div class="col">
             <%=instructor_by_id(instructor).first_name%>
           </div>
@@ -16,8 +16,8 @@
     </div>
     <div class="col">
       Last Name
-      <%@instructors.each do |instructor|%>
-        <div class="row ">
+      <%instructors.each do |instructor|%>
+        <div class="row instructor-<%=instructor.id%>">
           <div class="col">
             <%=instructor_by_id(instructor).last_name%>
           </div>
@@ -26,8 +26,8 @@
     </div>
     <div class="col">
       Email
-      <%@instructors.each do |instructor|%>
-        <div class="row ">
+      <%instructors.each do |instructor|%>
+        <div class="row instructor-<%=instructor.id%>">
           <div class="col">
             <%=instructor_by_id(instructor).email%>
           </div>
@@ -36,8 +36,8 @@
     </div>
     <div class="col">
       Age
-      <%@instructors.each do |instructor|%>
-        <div class="row ">
+      <%instructors.each do |instructor|%>
+        <div class="row instructor-<%=instructor.id%>">
           <div class="col">
             <%=instructor_by_id(instructor).age%>
           </div>
@@ -46,8 +46,8 @@
     </div>
     <div class="col">
       Education
-      <%@instructors.each do |instructor|%>
-        <div class="row ">
+      <%instructors.each do |instructor|%>
+        <div class="row instructor-<%=instructor.id%>">
           <%
             if instructor_by_id(instructor).education_id == 1
               education = "High School"
@@ -67,8 +67,8 @@
     </div>
     <div class="col">
       Salary
-      <%@instructors.each do |instructor|%>
-        <div class="row ">
+      <%instructors.each do |instructor|%>
+        <div class="row instructor-<%=instructor.id%>">
           <%if instructor_by_id(instructor).salary.nil?%>
             <div class="col">
               <%=number_to_currency(0, precision:2)%>
@@ -83,8 +83,8 @@
     </div>
     <div class="col">
       Options
-        <% @instructors.each do |instructor| %>
-          <div class="row ">
+        <% instructors.each do |instructor| %>
+          <div class="row instructor-<%=instructor.id%>">
            <div class="col">
             <%= link_to 'Show', instructor%>
             <%= link_to 'Edit', edit_instructor_path(instructor) %>
@@ -106,7 +106,7 @@
   </thead>
 
   <tbody>
-    <% @instructors.each do |instructor| %>
+    <% instructors.each do |instructor| %>
       <tr>
         <td><%= link_to 'Show', instructor %></td>
         <td><%= link_to 'Edit', edit_instructor_path(instructor) %></td>

@@ -1,3 +1,5 @@
 console.log('delete function triggered by js');
-var user = document.getElementById('user-<%=@user.id%>');
-user.parentNode.removeChild(user);
+var user = document.querySelectorAll('div.user-<%=@user.id%>');
+user.forEach(function(user_col){
+    user_col.remove()
+});

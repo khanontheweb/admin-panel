@@ -7,7 +7,7 @@
     <div class="col">
       Name
       <%@cohorts.each do |cohort|%>
-        <div class="row">
+        <div class="row cohort-<%=cohort.id%>">
           <div class="col">
             <%=cohort.name%>
           </div>
@@ -17,7 +17,7 @@
     <div class="col">
       Course
       <%@cohorts.each do |cohort|%>
-        <div class="row">
+        <div class="row cohort-<%=cohort.id%>">
           <div class="col">
             <%=course_of_cohort(cohort).name%>
           </div>
@@ -27,7 +27,7 @@
     <div class="col">
       Start Date
       <%@cohorts.each do |cohort|%>
-        <div class="row">
+        <div class="row cohort-<%=cohort.id%>">
           <div class="col">
             <%=cohort.start_date%>
           </div>
@@ -37,7 +37,7 @@
     <div class="col">
       End Date
       <%@cohorts.each do |cohort|%>
-        <div class="row">
+        <div class="row cohort-<%=cohort.id%>">
           <div class="col">
             <%=cohort.end_date%>
           </div>
@@ -47,7 +47,7 @@
     <div class="col">
       Options
       <%@cohorts.each do |cohort|%>
-        <div class="row">
+        <div class="row cohort-<%=cohort.id%>">
           <div class="col">
             <%= link_to 'Show', cohort %>
             <%= link_to 'Edit', edit_cohort_path(cohort) %>

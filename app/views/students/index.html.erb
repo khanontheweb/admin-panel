@@ -6,8 +6,8 @@
   <div class="row">
     <div class="col">
       First Name
-      <%@students.each do |student|%>
-        <div class="row ">
+      <%students.each do |student|%>
+        <div class="row student-<%=student.id%>">
           <div class="col">
             <%=student_by_id(student).first_name%>
           </div>
@@ -16,8 +16,8 @@
     </div>
     <div class="col">
       Last Name
-      <%@students.each do |student|%>
-        <div class="row ">
+      <%students.each do |student|%>
+        <div class="row student-<%=student.id%>">
           <div class="col">
             <%=student_by_id(student).last_name%>
           </div>
@@ -26,8 +26,8 @@
     </div>
     <div class="col">
       Email
-      <%@students.each do |student|%>
-        <div class="row ">
+      <%students.each do |student|%>
+        <div class="row student-<%=student.id%>">
           <div class="col">
             <%=student_by_id(student).email%>
           </div>
@@ -36,8 +36,8 @@
     </div>
     <div class="col">
       Age
-      <%@students.each do |student|%>
-        <div class="row ">
+      <%students.each do |student|%>
+        <div class="row student-<%=student.id%>">
           <div class="col">
             <%=student_by_id(student).age%>
           </div>
@@ -46,8 +46,8 @@
     </div>
     <div class="col">
       Education
-      <%@students.each do |student|%>
-        <div class="row ">
+      <%students.each do |student|%>
+        <div class="row student-<%=student.id%>">
           <%
             if student_by_id(student).education_id == 1
               education = "High School"
@@ -67,8 +67,8 @@
     </div>
     <div class="col">
       Options
-        <% @students.each do |student| %>
-          <div class="row ">
+        <% students.each do |student| %>
+          <div class="row student-<%=student.id%>">
            <div class="col">
             <%= link_to 'Show', student%>
             <%= link_to 'Edit', edit_student_path(student) %>
@@ -90,7 +90,7 @@
   </thead>
 
   <tbody>
-    <% @students.each do |student| %>
+    <% students.each do |student| %>
       <tr>
         <td><%= link_to 'Show', student %></td>
         <td><%= link_to 'Edit', edit_student_path(student) %></td>

@@ -64,10 +64,12 @@ class CohortsController < ApplicationController
   # DELETE /cohorts/1
   # DELETE /cohorts/1.json
   def destroy
-    @cohort.destroy
+    
     respond_to do |format|
       format.js
     end
+
+    @cohort.destroy
   end
 
   private

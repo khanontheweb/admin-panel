@@ -10,7 +10,7 @@
     <div class="col">
       First Name
       <%@users.each do |user|%>
-        <div class="row ">
+        <div class="row user-<%=user.id%>">
           <div class="col">
             <%=user.first_name%>
           </div>
@@ -20,7 +20,7 @@
     <div class="col">
       Last Name
       <%@users.each do |user|%>
-        <div class="row ">
+        <div class="row user-<%=user.id%> ">
           <div class="col">
             <%=user.last_name%>
           </div>
@@ -30,7 +30,7 @@
     <div class="col">
       Email
       <%@users.each do |user|%>
-        <div class="row ">
+        <div class="row user-<%=user.id%> ">
           <div class="col">
             <%=user.email%>
           </div>
@@ -40,7 +40,7 @@
     <div class="col">
       Age
       <%@users.each do |user|%>
-        <div class="row ">
+        <div class="row user-<%=user.id%> ">
           <div class="col">
             <%=user.age%>
           </div>
@@ -50,7 +50,7 @@
     <div class="col">
       Education
       <%@users.each do |user|%>
-        <div class="row ">
+        <div class="row user-<%=user.id%> ">
           <%
             if user.education_id == 1
               education = "High School"
@@ -71,7 +71,7 @@
     <div class="col">
       User Type
       <%@users.each do |user|%>
-        <div class="row ">
+        <div class="row user-<%=user.id%>">
           <%
             if user.permission_id == 1
               type = "Administrator"
@@ -90,7 +90,7 @@
     <div class="col">
       Salary
       <%@users.each do |user|%>
-        <div class="row ">
+        <div class="row user-<%=user.id%>">
           <%if user.salary.nil?%>
             <div class="col">
               <%=number_to_currency(0, precision:2)%>
@@ -106,7 +106,7 @@
     <div class="col">
       Options
         <% @users.each do |user| %>
-          <div class="row ">
+          <div class="row user-<%=user.id%>">
            <div class="col">
             <%= link_to 'Show', user%>
             <%= link_to 'Edit', edit_user_path(user) %>
