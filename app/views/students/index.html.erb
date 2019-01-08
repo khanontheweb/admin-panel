@@ -2,6 +2,86 @@
 
 <h1>Students</h1>
 
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      First Name
+      <%@students.each do |student|%>
+        <div class="row ">
+          <div class="col">
+            <%=student_by_id(student).first_name%>
+          </div>
+        </div>
+      <%end%>
+    </div>
+    <div class="col">
+      Last Name
+      <%@students.each do |student|%>
+        <div class="row ">
+          <div class="col">
+            <%=student_by_id(student).last_name%>
+          </div>
+        </div>
+      <%end%>
+    </div>
+    <div class="col">
+      Email
+      <%@students.each do |student|%>
+        <div class="row ">
+          <div class="col">
+            <%=student_by_id(student).email%>
+          </div>
+        </div>
+      <%end%>
+    </div>
+    <div class="col">
+      Age
+      <%@students.each do |student|%>
+        <div class="row ">
+          <div class="col">
+            <%=student_by_id(student).age%>
+          </div>
+        </div>
+      <%end%>
+    </div>
+    <div class="col">
+      Education
+      <%@students.each do |student|%>
+        <div class="row ">
+          <%
+            if student_by_id(student).education_id == 1
+              education = "High School"
+            elsif student_by_id(student).education_id == 2
+              education = "Bachelor's"
+            elsif student_by_id(student).education_id == 3
+              education = "Master's"
+            elsif student_by_id(student).education_id == 4
+              education = "PhD"
+            end
+          %>
+          <div class="col">
+            <%= education%>
+          </div>
+        </div>
+      <%end%>
+    </div>
+    <div class="col">
+      Options
+        <% @students.each do |student| %>
+          <div class="row ">
+           <div class="col">
+            <%= link_to 'Show', student%>
+            <%= link_to 'Edit', edit_student_path(student) %>
+            <%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' }, remote: true %>
+           </div>
+          </div>
+        <%end%>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <table>
   <thead>
     <tr>

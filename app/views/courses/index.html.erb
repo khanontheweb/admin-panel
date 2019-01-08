@@ -2,6 +2,43 @@
 
 <h1>Courses</h1>
 
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      Name
+      <% @courses.each do |course| %>
+        <div class="row">
+          <div class="col">
+            <%=course.name%>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="col">
+      Hours
+      <% @courses.each do |course| %>
+        <div class="row">
+          <div class="col">
+            <%=course.hours%>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="col">
+      Options
+      <% @courses.each do |course| %>
+        <div class="row">
+          <div class="col">
+            <%= link_to 'Show', course %>
+            <%= link_to 'Edit', edit_course_path(course) %>
+            <%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
 <table>
   <thead>
     <tr>

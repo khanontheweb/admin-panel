@@ -17,5 +17,13 @@ def students
 end
 
 def course_of_cohort(cohort)
-  return Course.where("id = #{cohort.course_i}")
+  return Course.find(cohort.course_i)
+end
+
+def student_by_id(student)
+  return User.find(student.student_id)
+end
+
+def instructor_by_id(instructor)
+  return User.find(instructor.instructor_id)
 end

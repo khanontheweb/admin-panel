@@ -2,6 +2,102 @@
 
 <h1>Instructors</h1>
 
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      First Name
+      <%@instructors.each do |instructor|%>
+        <div class="row ">
+          <div class="col">
+            <%=instructor_by_id(instructor).first_name%>
+          </div>
+        </div>
+      <%end%>
+    </div>
+    <div class="col">
+      Last Name
+      <%@instructors.each do |instructor|%>
+        <div class="row ">
+          <div class="col">
+            <%=instructor_by_id(instructor).last_name%>
+          </div>
+        </div>
+      <%end%>
+    </div>
+    <div class="col">
+      Email
+      <%@instructors.each do |instructor|%>
+        <div class="row ">
+          <div class="col">
+            <%=instructor_by_id(instructor).email%>
+          </div>
+        </div>
+      <%end%>
+    </div>
+    <div class="col">
+      Age
+      <%@instructors.each do |instructor|%>
+        <div class="row ">
+          <div class="col">
+            <%=instructor_by_id(instructor).age%>
+          </div>
+        </div>
+      <%end%>
+    </div>
+    <div class="col">
+      Education
+      <%@instructors.each do |instructor|%>
+        <div class="row ">
+          <%
+            if instructor_by_id(instructor).education_id == 1
+              education = "High School"
+            elsif instructor_by_id(instructor).education_id == 2
+              education = "Bachelor's"
+            elsif instructor_by_id(instructor).education_id == 3
+              education = "Master's"
+            elsif instructor_by_id(instructor).education_id == 4
+              education = "PhD"
+            end
+          %>
+          <div class="col">
+            <%= education%>
+          </div>
+        </div>
+      <%end%>
+    </div>
+    <div class="col">
+      Salary
+      <%@instructors.each do |instructor|%>
+        <div class="row ">
+          <%if instructor_by_id(instructor).salary.nil?%>
+            <div class="col">
+              <%=number_to_currency(0, precision:2)%>
+            </div>
+          <%else%>
+            <div class="col">
+              <%=number_to_currency(instructor_by_id(instructor).salary, precision: 2)%>
+            </div>
+          <%end%>
+        </div>
+      <%end%>
+    </div>
+    <div class="col">
+      Options
+        <% @instructors.each do |instructor| %>
+          <div class="row ">
+           <div class="col">
+            <%= link_to 'Show', instructor%>
+            <%= link_to 'Edit', edit_instructor_path(instructor) %>
+            <%= link_to 'Destroy', instructor, method: :delete, data: { confirm: 'Are you sure?' }, remote: true %>
+           </div>
+          </div>
+        <%end%>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <table>
   <thead>
     <tr>
