@@ -19,7 +19,11 @@
       <%@cohorts.each do |cohort|%>
         <div class="row cohort-<%=cohort.id%>">
           <div class="col">
-            <%=course_of_cohort(cohort).name%>
+            <% if cohort.course_i.nil?%>
+              None
+            <% else %>
+              <%=course_of_cohort(cohort).name%>
+            <%end%>
           </div>
         </div>
       <%end%>
@@ -51,7 +55,7 @@
           <div class="col">
             <%= link_to 'Show', cohort %>
             <%= link_to 'Edit', edit_cohort_path(cohort) %>
-            <%= link_to 'Destroy', cohort, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= link_to 'Destroy', cohort, method: :delete, data: { confirm: 'Are you sure?' }, remote: true %>
           </div>
         </div>
       <%end%>

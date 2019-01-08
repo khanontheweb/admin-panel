@@ -1,5 +1,5 @@
 console.log('delete function triggered by js');
-var user = document.querySelectorAll('div.cohort-<%=@cohort.id%>');
+var user = document.querySelectorAll('div.instructor-<%=@instructor.id%>');
 user.forEach(function(user_col){
     user_col.remove();
 });

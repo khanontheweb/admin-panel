@@ -30,13 +30,17 @@ class CohortsController < ApplicationController
     respond_to do |format|
       if @cohort.save
         instructors = params[:instructors]
-        instructors.each do |instructor|
-          instructor = @cohort.instructors.create(instructor_id: instructor)
+        if !instructors.nil?
+          instructors.each do |instructor|
+            instructor = @cohort.instructors.create(instructor_id: instructor)
+          end
         end
 
         students = params[:students]
-        students.each do |student|
-          student = @cohort.students.create(student_id: student)
+        if !students.nil?
+          students.each do |student|
+            student = @cohort.students.create(student_id: student)
+          end
         end
         format.html { redirect_to @cohort, notice: 'Cohort was successfully created.' }
         format.json { render :show, status: :created, location: @cohort }
@@ -64,7 +68,6 @@ class CohortsController < ApplicationController
   # DELETE /cohorts/1
   # DELETE /cohorts/1.json
   def destroy
-    
     respond_to do |format|
       format.js
     end

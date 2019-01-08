@@ -5,6 +5,12 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def students_show
+  end
+
+  def instructors_show
+  end
+
   def show
   end
 

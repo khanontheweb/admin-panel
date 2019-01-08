@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  resources :instructors
-  resources :students
   resources :cohorts
   resources :courses
   resources :test_scaffolds
@@ -11,6 +9,8 @@ Rails.application.routes.draw do
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
+  get 'students', to: 'users#students_show', as: 'students'
+  get 'instructors', to: 'users#instructors_show', as: 'instructors'
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
