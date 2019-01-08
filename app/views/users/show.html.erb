@@ -4,6 +4,7 @@
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
+<%= image_tag(@user.propic, width:200 ) if @user.propic.attached? %>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

@@ -21,8 +21,11 @@
   </div>
 
   <div class="form-row mb-2">
-    <div class="col-sm-10">
+    <div class="col">
       <%= form.email_field :email, class: "form-control", placeholder:"email@example.com" %>
+    </div>
+    <div class="col">
+      <%= form.file_field :propic%>
     </div>
     <div class="col">
       <%= form.number_field :age, class: "form-control", placeholder:"Age (20, 21...149)"%>

@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_secure_password
+  has_one_attached :propic
 
   validates :email, :first_name, :last_name, :password, :age, :education_id, :permission_id, presence: true
   validates :email, uniqueness: true

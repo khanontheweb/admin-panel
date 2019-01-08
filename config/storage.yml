@@ -6,6 +6,17 @@ local:
   service: Disk
   root: <%= Rails.root.join("storage") %>
 
+google:
+  service: GCS
+  project: admin-panel
+  credentials: <%= ENV['GOOGLE_APPLICATION_CREDENTIALS'] %>
+  bucket: shokugeki-no-souma-panel
+google_dev:
+  service: GCS
+  project: admin-panel
+  credentials: <%= Rails.root.join("config/secrets/admin-panel.json") %>
+  bucket: shokugeki-no-souma-panel
+
 # Use rails credentials:edit to set the AWS secrets (as aws:access_key_id|secret_access_key)
 # amazon:
 #   service: S3
