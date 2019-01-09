@@ -12,6 +12,33 @@
   </head>
 
   <body>
+    <% if current_user %>
+      <nav class="nav flex-column side-nav">
+
+        
+        <% if @current_user.propic.attached? %>
+          <% @img_type = image_type(@current_user.propic) %>
+          <div class=<%=@img_type%>>
+            <%= link_to image_tag(@current_user.propic, width: 200), @current_user %>
+          </div>
+        <% else %>
+          <%= image_tag("avatar.png", width: 200, class:"circle-img") %>
+        <% end %>
+
+
+        <%= link_to(@curent_user, {class: "nav-item nav-link"} ) do %>
+          <%= @current_user.first_name.upcase %>
+          <%= @current_user.last_name.upcase %>
+        <% end %>
+        <a class="nav-item nav-link" href="#">Link</a>
+        <a class="nav-item nav-link" href="#">Link</a>
+        <a class="nav-item nav-link " href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+
+
+      </nav>
+    <% else %>
+      <p>You are not logged in</p>
+    <% end %>
     <%= yield %>
     
     

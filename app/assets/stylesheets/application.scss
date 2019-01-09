@@ -21,6 +21,51 @@
   }
   
 
+.side-nav {
+  height:100%;
+  width:200px;
+  position:fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top:20px;   
+}
+
+.landscape {
+  display: inline-block;
+  position: relative;
+  width:200px;
+  height:200px;
+  overflow:hidden;
+  border-radius: 50%;
+  
+  img {
+    width: auto;
+    height: 100%;
+    margin-left: -50px;
+  }
+}
+
+.portrait {
+  display: inline-block;
+  position: relative;
+  width:200px;
+  height:200px;
+  overflow:hidden;
+  border-radius: 50%;
+
+  img {
+    width: auto;
+    height: 100%;
+  }
+
+}
+.square {
+  border-radius: 50;
+}
+
 
 
 

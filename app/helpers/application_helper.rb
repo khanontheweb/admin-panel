@@ -27,3 +27,15 @@ end
 def instructor_by_id(instructor)
   return User.find(instructor.instructor_id)
 end
+
+def image_type(propic)
+  width = propic.metadata[:width]
+  height = propic.metadata[:height]
+  if width == height
+    return "square"
+  elsif width < height
+    return "portrait"
+  else
+    return "landscape"
+  end
+end
