@@ -2,58 +2,66 @@
 
 <p id="notice"><%= notice %></p>
 
-<h1>User List</h1>
+
 
 
 <div class="container-fluid">
   <div class="row">
-    <div class="col header-col">
+    <div class="col"><h1>User List</h1></div>
+    <div class="col"><%= link_to 'Add User', add_user_path %></div>
+  </div>
+  <div class="row">
+    <div class="col pr-0">
       FIRST NAME
-      <hr>
+      <hr class="header-rule">
       <%@users.each do |user|%>
         <div class="row user-<%=user.id%>">
           <div class="col">
             <%=user.first_name%>
+            <hr class="index-rule">
           </div>
         </div>
       <%end%>
     </div>
-    <div class="col header-col">
+    <div class="col px-0">
       LAST NAME
-      <hr>
+      <hr class="header-rule">
       <%@users.each do |user|%>
         <div class="row user-<%=user.id%> ">
           <div class="col">
             <%=user.last_name%>
+            <hr class="index-rule">
           </div>
         </div>
       <%end%>
     </div>
-    <div class="col header-col">
+    <div class="col px-0">
       EMAIL
-      <hr>
+      <hr class="header-rule">
       <%@users.each do |user|%>
         <div class="row user-<%=user.id%> ">
           <div class="col">
             <%=user.email%>
+            <hr class="index-rule">
           </div>
         </div>
       <%end%>
     </div>
-    <div class="col header-col">
+    <div class="col px-0">
       AGE
-      <hr>
+      <hr class="header-rule">
       <%@users.each do |user|%>
         <div class="row user-<%=user.id%> ">
           <div class="col">
             <%=user.age%>
+            <hr class="index-rule">
           </div>
         </div>
       <%end%>
     </div>
-    <div class="col header-col">
+    <div class="col px-0">
       EDUCATION
-      <hr>
+      <hr class="header-rule">
       <%@users.each do |user|%>
         <div class="row user-<%=user.id%> ">
           <%
@@ -69,13 +77,14 @@
           %>
           <div class="col">
             <%= education%>
+            <hr class="index-rule">
           </div>
         </div>
       <%end%>
     </div>
-    <div class="col header-col">
+    <div class="col px-0">
       USER TYPE
-      <hr>
+      <hr class="header-rule">
       <%@users.each do |user|%>
         <div class="row user-<%=user.id%>">
           <%
@@ -89,36 +98,40 @@
           %>
             <div class="col">
               <%= type%>
+              <hr class="index-rule">
             </div>
         </div>
       <%end%>
     </div>
-    <div class="col header-col">
+    <div class="col px-0">
       SALARY
-      <hr>
+      <hr class="header-rule">
       <%@users.each do |user|%>
         <div class="row user-<%=user.id%>">
           <%if user.salary.nil?%>
             <div class="col">
               <%=number_to_currency(0, precision:2)%>
+              <hr class="index-rule">
             </div>
           <%else%>
             <div class="col">
               <%=number_to_currency(user.salary, precision: 2)%>
+              <hr class="index-rule">
             </div>
           <%end%>
         </div>
       <%end%>
     </div>
-    <div class="col header-col">
+    <div class="col pl-0">
         OPTIONS
-        <hr>
+        <hr class="header-rule">
         <% @users.each do |user| %>
           <div class="row user-#{user.id}">
            <div class="col">
             <%= link_to 'Show', user%>
             <%= link_to 'Edit', edit_user_path(user) %>
             <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, remote: true %>
+            <hr class="index-rule">
            </div>
           </div>
         <%end%>
@@ -129,4 +142,4 @@
 
 <br>
 
-<%= link_to 'Add User', add_user_path %>
+
