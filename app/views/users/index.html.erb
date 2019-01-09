@@ -2,13 +2,14 @@
 
 <p id="notice"><%= notice %></p>
 
-<h1>Users</h1>
+<h1>User List</h1>
 
 
 <div class="container-fluid">
   <div class="row">
-    <div class="col">
-      First Name
+    <div class="col header-col">
+      FIRST NAME
+      <hr>
       <%@users.each do |user|%>
         <div class="row user-<%=user.id%>">
           <div class="col">
@@ -17,8 +18,9 @@
         </div>
       <%end%>
     </div>
-    <div class="col">
-      Last Name
+    <div class="col header-col">
+      LAST NAME
+      <hr>
       <%@users.each do |user|%>
         <div class="row user-<%=user.id%> ">
           <div class="col">
@@ -27,8 +29,9 @@
         </div>
       <%end%>
     </div>
-    <div class="col">
-      Email
+    <div class="col header-col">
+      EMAIL
+      <hr>
       <%@users.each do |user|%>
         <div class="row user-<%=user.id%> ">
           <div class="col">
@@ -37,8 +40,9 @@
         </div>
       <%end%>
     </div>
-    <div class="col">
-      Age
+    <div class="col header-col">
+      AGE
+      <hr>
       <%@users.each do |user|%>
         <div class="row user-<%=user.id%> ">
           <div class="col">
@@ -47,8 +51,9 @@
         </div>
       <%end%>
     </div>
-    <div class="col">
-      Education
+    <div class="col header-col">
+      EDUCATION
+      <hr>
       <%@users.each do |user|%>
         <div class="row user-<%=user.id%> ">
           <%
@@ -68,8 +73,9 @@
         </div>
       <%end%>
     </div>
-    <div class="col">
-      User Type
+    <div class="col header-col">
+      USER TYPE
+      <hr>
       <%@users.each do |user|%>
         <div class="row user-<%=user.id%>">
           <%
@@ -87,8 +93,9 @@
         </div>
       <%end%>
     </div>
-    <div class="col">
-      Salary
+    <div class="col header-col">
+      SALARY
+      <hr>
       <%@users.each do |user|%>
         <div class="row user-<%=user.id%>">
           <%if user.salary.nil?%>
@@ -103,8 +110,9 @@
         </div>
       <%end%>
     </div>
-    <div class="col">
-      Options
+    <div class="col header-col">
+        OPTIONS
+        <hr>
         <% @users.each do |user| %>
           <div class="row user-#{user.id}">
            <div class="col">
