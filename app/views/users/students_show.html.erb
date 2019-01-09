@@ -71,7 +71,7 @@
           <div class="row user-<%=student.id%>">
            <div class="col">
             <%= link_to 'Show', student%>
-            <%= link_to 'Edit', edit_student_path(student) %>
+            <%= link_to 'Edit', edit_user_path(student) %>
             <%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' }, remote: true %>
            </div>
           </div>

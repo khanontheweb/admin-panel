@@ -87,7 +87,7 @@
           <div class="row user-<%=instructor.id%>">
            <div class="col">
             <%= link_to 'Show', instructor%>
-            <%= link_to 'Edit', edit_instructor_path(instructor) %>
+            <%= link_to 'Edit', edit_user_path(instructor) %>
             <%= link_to 'Destroy', instructor, method: :delete, data: { confirm: 'Are you sure?' }, remote: true %>
            </div>
           </div>
