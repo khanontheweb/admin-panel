@@ -1,6 +1,6 @@
-<p id="notice"><%= notice %></p>
+<p class="mb-0" id="notice"><%= notice %></p>
 
-<p>
+<p class="mb-0">
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
@@ -12,35 +12,40 @@
       <%= image_tag(@user.propic, width:100, class:"card-img-top" ) if @user.propic.attached? %>
       <div class="card-body pb-0">
         <div class="container">
-          <div class="row justify-content-between">
+
+          <div class="row justify-content-between mb-2">
             <div class="col text-left align-self-end">
               <h4 class="card-title mb-0">
                 <%=@user.first_name.upcase%> <%=@user.last_name.upcase%>
               </h4>
             </div>
-            <div class="col-sm-4 text-right">
+            <div class="col-sm-4 text-right align-self-end">
               <%= link_to 'Edit', edit_user_path(@user), class: "btn btn-primary" %>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="card-body pt-0">
-        <div class="container">
-          <div class="row justify-content-between">
-            <div class="col-sm-2 text-left">
-              <p>Age: <%=@user.age%></p>
+        
+          <div class="row justify-content-between mb-2">
+            <div class="col-sm-2 text-left align-self-end">
+              <p class="mb-0">Age: <%=@user.age%></p>
             </div>
-            <div class="col text-right">
-              <p>Email: <%=@user.email%></p>
+            <div class="col text-right align-self-end">
+              <p class="mb-0">Email: <%=@user.email%></p>
             </div>
           </div>
-          <div class="row"></div>
+
+          <div class="row justify-content-between mb-2">
+            <div class="col-sm-4 text-left">
+              <p class="mb-0">Education: <%=education_level(@user)%> </p>
+            </div>
+            <div class="col-sm-4 text-right">
+              <p class="mb-0">User Type: <%=user_type(@user)%></p>
+          </div>
         </div>
       </div>
     </div>
   </div>
   <div class="col-sm-6">
-    
+
   </div>
 </div>
 

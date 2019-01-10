@@ -39,3 +39,25 @@ def image_type(propic)
     return "landscape"
   end
 end
+
+def education_level(user) 
+  if user.education_id == 1
+    @education = "High School"
+  elsif user.education_id == 2
+    @education = "Bachelor's"
+  elsif user.education_id == 3
+    @education = "Master's"
+  elsif user.education_id == 4
+    @education = "PhD"
+  end
+end
+
+def user_type(user)
+  if user.permission_id == 1
+    @type = "Administrator"
+  elsif user.permission_id == 2
+    @type = "Instructor"
+  elsif user.permission_id == 3
+    @type = "Student"
+  end
+end
