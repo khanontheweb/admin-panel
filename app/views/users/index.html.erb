@@ -3,8 +3,6 @@
 <p id="notice"><%= notice %></p>
 
 
-
-
 <div class="container-fluid">
   <div class="row">
     <div class="col">
@@ -23,7 +21,7 @@
       <%@users.each do |user|%>
         <div class="row user-<%=user.id%>">
           <div class="col">
-            <%= link_to user.first_name, user %>
+            <%= link_to user.first_name, user, class: "user-link" %>
             <hr class="index-rule">
           </div>
         </div>
@@ -35,7 +33,7 @@
       <%@users.each do |user|%>
         <div class="row user-<%=user.id%> ">
           <div class="col">
-            <%=link_to user.last_name, user%>
+            <%=link_to user.last_name, user, class: "user-link"%>
             <hr class="index-rule">
           </div>
         </div>

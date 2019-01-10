@@ -18,4 +18,4 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require bootstrap-select
-//= require bootstrap-select
+

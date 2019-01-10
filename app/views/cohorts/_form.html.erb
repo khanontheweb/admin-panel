@@ -1,3 +1,5 @@
+
+
 <%= form_with(model: cohort, local: true) do |form| %>
   <% if cohort.errors.any? %>
     <div id="error_explanation">
@@ -23,6 +25,7 @@
 
   <div class="form-row mb-2">
     <div class="col">
+    
       <%= select_tag "instructors", options_from_collection_for_select(instructors, :id, :first_name), {:multiple => true, class: "selectpicker",data: {"live-search": true, "selected-text-format": "static"}, title: "Instructors Below"}%>
     </div>
   </div>
@@ -58,3 +61,5 @@
 <% end %>
 
 <%= javascript_include_tag 'cohort_form.js' %>
+
+<%= javascript_include_tag 'live-search.js' %>

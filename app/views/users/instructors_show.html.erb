@@ -1,51 +1,70 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Instructors</h1>
+<%= stylesheet_link_tag 'instructors_index' %>
 
 <div class="container-fluid">
   <div class="row">
     <div class="col">
-      First Name
+      <h1 class="d-inline">Instructor List</h1>
+      <%= link_to(add_user_path, class: "btn btn-info btn-lg add-user-btn") do %>
+        Add Instructor
+        <i class="fas fa-address-card"></i>
+      <% end %> 
+      <hr class="list-rule mt-0 mb-4">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col pr-0">
+      FIRST NAME
+      <hr class="header-rule">
       <%instructors.each do |instructor|%>
         <div class="row user-<%=instructor.id%>">
           <div class="col">
-            <%=instructor.first_name%>
+            <%= link_to instructor.first_name, instructor, class: "user-link"%>
+            <hr class="index-rule">
           </div>
         </div>
       <%end%>
     </div>
-    <div class="col">
-      Last Name
+    <div class="col px-0">
+      LAST NAME
+      <hr class="header-rule">
       <%instructors.each do |instructor|%>
         <div class="row user-<%=instructor.id%>">
           <div class="col">
-            <%=instructor.last_name%>
+            <%= link_to instructor.last_name, instructor, class: "user-link"%>
+            <hr class="index-rule">
           </div>
         </div>
       <%end%>
     </div>
-    <div class="col">
-      Email
+    <div class="col px-0">
+      EMAIL
+      <hr class="header-rule">
       <%instructors.each do |instructor|%>
         <div class="row user-<%=instructor.id%>">
           <div class="col">
             <%=instructor.email%>
+            <hr class="index-rule">
           </div>
         </div>
       <%end%>
     </div>
-    <div class="col">
-      Age
+    <div class="col px-0">
+      AGE
+      <hr class="header-rule">
       <%instructors.each do |instructor|%>
         <div class="row user-<%=instructor.id%>">
           <div class="col">
             <%=instructor.age%>
+            <hr class="index-rule">
           </div>
         </div>
       <%end%>
     </div>
-    <div class="col">
-      Education
+    <div class="col px-0">
+      EDUCATION
+      <hr class="header-rule">
       <%instructors.each do |instructor|%>
         <div class="row user-<%=instructor.id%>">
           <%
@@ -61,34 +80,42 @@
           %>
           <div class="col">
             <%= education%>
+            <hr class="index-rule">
           </div>
         </div>
       <%end%>
     </div>
-    <div class="col">
-      Salary
+    <div class="col px-0">
+      SALARY
+      <hr class="header-rule">
       <%instructors.each do |instructor|%>
         <div class="row user-<%=instructor.id%>">
           <%if instructor.salary.nil?%>
             <div class="col">
               <%=number_to_currency(0, precision:2)%>
+              <hr class="index-rule">
             </div>
           <%else%>
             <div class="col">
               <%=number_to_currency(instructor.salary, precision: 2)%>
+              <hr class="index-rule">
             </div>
           <%end%>
         </div>
       <%end%>
     </div>
-    <div class="col">
-      Options
+    <div class="col pl-0">
+      OPTIONS
+      <hr class="header-rule">
         <% instructors.each do |instructor| %>
           <div class="row user-<%=instructor.id%>">
            <div class="col">
-            <%= link_to 'Show', instructor%>
-            <%= link_to 'Edit', edit_user_path(instructor) %>
-            <%= link_to 'Destroy', instructor, method: :delete, data: { confirm: 'Are you sure?' }, remote: true %>
+            <div class="btn-group">
+                <%= link_to 'Info', instructor, class: "btn btn-success opt-btn mr-2"%>
+                <%= link_to 'Edit', edit_user_path(instructor), class: "btn btn-warning opt-btn mr-2" %>
+                <%= link_to 'Destroy', instructor, class: "btn btn-danger opt-btn", method: :delete, data: { confirm: 'Are you sure?' }, remote: true %>
+              </div>
+              <hr class="index-rule">
            </div>
           </div>
         <%end%>

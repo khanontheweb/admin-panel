@@ -1,50 +1,71 @@
+<%= stylesheet_link_tag 'student_index' %>
+
 <p id="notice"><%= notice %></p>
 
-<h1>Students</h1>
+
 <div class="container-fluid">
   <div class="row">
     <div class="col">
-      First Name
+      <h1 class="d-inline">Student List</h1>
+      <%= link_to(add_user_path, class: "btn btn-info btn-lg add-user-btn") do %>
+        Add Student
+        <i class="fas fa-address-card"></i>
+      <% end %> 
+      <hr class="list-rule mt-0 mb-4">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col pr-0">
+      FIRST NAME
+      <hr class="header-rule">
       <%students.each do |student|%>
         <div class="row user-<%=student.id%>">
           <div class="col">
-            <%=student.first_name%>
+            <%= link_to student.first_name, student, class:"user-link"%>
+            <hr class="index-rule">
           </div>
         </div>
       <%end%>
     </div>
-    <div class="col">
-      Last Name
+    <div class="col px-0">
+      LAST NAME
+      <hr class="header-rule">
       <%students.each do |student|%>
         <div class="row user-<%=student.id%>">
           <div class="col">
-            <%=student.last_name%>
+            <%= link_to student.last_name, student, class:"user-link"%>
+            <hr class="index-rule">
           </div>
         </div>
       <%end%>
     </div>
-    <div class="col">
-      Email
+    <div class="col px-0">
+      EMAIL
+      <hr class="header-rule">
       <%students.each do |student|%>
         <div class="row user-<%=student.id%>">
           <div class="col">
             <%=student.email%>
+            <hr class="index-rule">
           </div>
         </div>
       <%end%>
     </div>
-    <div class="col">
-      Age
+    <div class="col px-0">
+      AGE
+      <hr class="header-rule">
       <%students.each do |student|%>
         <div class="row user-<%=student.id%>">
           <div class="col">
             <%=student.age%>
+            <hr class="index-rule">
           </div>
         </div>
       <%end%>
     </div>
-    <div class="col">
-      Education
+    <div class="col px-0">
+      EDUCATION
+      <hr class="header-rule">
       <%students.each do |student|%>
         <div class="row user-<%=student.id%>">
           <%
@@ -60,19 +81,24 @@
           %>
           <div class="col">
             <%= education%>
+            <hr class="index-rule">
           </div>
         </div>
       <%end%>
     </div>
-    <div class="col">
-      Options
+    <div class="col pl-0">
+      OPTIONS
+      <hr class="header-rule">
         <% students.each do |student| %>
           <div class="row user-<%=student.id%>">
-           <div class="col">
-            <%= link_to 'Show', student%>
-            <%= link_to 'Edit', edit_user_path(student) %>
-            <%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' }, remote: true %>
-           </div>
+            <div class="col">
+              <div class="btn-group">
+                  <%= link_to 'Info', student, class: "btn btn-success opt-btn mr-2"%>
+                  <%= link_to 'Edit', edit_user_path(student), class: "btn btn-warning opt-btn mr-2" %>
+                  <%= link_to 'Destroy', student, class: "btn btn-danger opt-btn", method: :delete, data: { confirm: 'Are you sure?' }, remote: true %>
+              </div>
+              <hr class="index-rule">
+            </div>
           </div>
         <%end%>
       </div>

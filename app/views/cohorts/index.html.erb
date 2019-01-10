@@ -1,61 +1,84 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Cohorts</h1>
+<%= stylesheet_link_tag 'cohort_index' %>
 
 <div class="container-fluid">
   <div class="row">
     <div class="col">
-      Name
+      <h1 class="d-inline">Cohort List</h1>
+      <%= link_to(new_cohort_path, class: "btn btn-info btn-lg add-user-btn") do %>
+        Add Cohort
+        <i class="fab fa-discourse"></i>
+      <% end %> 
+      <hr class="list-rule mt-0 mb-4">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col pr-0">
+      NAME
+      <hr class="header-rule">
       <%@cohorts.each do |cohort|%>
         <div class="row cohort-<%=cohort.id%>">
           <div class="col">
-            <%=cohort.name%>
+            <%= link_to cohort.first_name, cohort, class: "user-link" %>
+            <hr class="index-rule">
           </div>
         </div>
       <%end%>
     </div>
-    <div class="col">
-      Course
+    <div class="col px-0">
+      COURSE
+      <hr class="header-rule">
       <%@cohorts.each do |cohort|%>
         <div class="row cohort-<%=cohort.id%>">
           <div class="col">
             <% if cohort.course_i.nil?%>
               None
+              <hr class="index-rule">
             <% else %>
-              <%=course_of_cohort(cohort).name%>
+              <%=link_to course_of_cohort(cohort).name, course_of_cohort(cohort), class:"user-link"%>
+              <hr class="index-rule">
             <%end%>
           </div>
         </div>
       <%end%>
     </div>
-    <div class="col">
-      Start Date
+    <div class="col px-0">
+      START DATE
+      <hr class="header-rule">
       <%@cohorts.each do |cohort|%>
         <div class="row cohort-<%=cohort.id%>">
           <div class="col">
             <%=cohort.start_date%>
+            <hr class="index-rule">
           </div>
         </div>
       <%end%>
     </div>
-    <div class="col">
-      End Date
+    <div class="col px-0">
+      END DATE
+      <hr class="header-rule">
       <%@cohorts.each do |cohort|%>
         <div class="row cohort-<%=cohort.id%>">
           <div class="col">
             <%=cohort.end_date%>
+            <hr class="index-rule">
           </div>
         </div>
       <%end%>
     </div>
-    <div class="col">
-      Options
+    <div class="col pl-0">
+      OPTIONS
+      <hr class="header-rule">
       <%@cohorts.each do |cohort|%>
         <div class="row cohort-<%=cohort.id%>">
           <div class="col">
-            <%= link_to 'Show', cohort %>
-            <%= link_to 'Edit', edit_cohort_path(cohort) %>
-            <%= link_to 'Destroy', cohort, method: :delete, data: { confirm: 'Are you sure?' }, remote: true %>
+            <div class="btn-group">
+                <%= link_to 'Info', cohort, class: "btn btn-success opt-btn mr-2"%>
+                <%= link_to 'Edit', edit_cohort_path(cohort), class: "btn btn-warning opt-btn mr-2" %>
+                <%= link_to 'Destroy', cohort, class: "btn btn-danger opt-btn", method: :delete, data: { confirm: 'Are you sure?' }, remote: true %>
+              </div>
+              <hr class="index-rule">
           </div>
         </div>
       <%end%>
@@ -63,4 +86,4 @@
   </div>
 </div>
 
-<%= link_to 'New Cohort', new_cohort_path %>
+

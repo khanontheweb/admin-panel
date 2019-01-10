@@ -42,7 +42,11 @@ gem "bootstrap", ">= 4.0.0"
 gem 'jquery-rails'
 
 #bootstrap select
-gem 'bootstrap-select-rails'
+gem 'bootstrap4-select-rails'
+
+#gem 'bootstrap-select-wrapper-rails'
+
+#gem 'bootstrap-select-wrapper-rails', '~> 1.10'
 
 #google cloud storage
 gem "google-cloud-storage", "~> 1.8", require: false
