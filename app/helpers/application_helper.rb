@@ -61,3 +61,7 @@ def user_type(user)
     @type = "Student"
   end
 end
+
+def get_enrolled_in(student)
+  return Student.where(student_id: student.id).select("cohort_id")
+end

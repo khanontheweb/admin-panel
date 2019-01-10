@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :student_profile, :instructor_profile]
 
   def index
     @users = User.all
@@ -9,6 +9,12 @@ class UsersController < ApplicationController
   end
 
   def instructors_show
+  end
+
+  def student_profile
+  end
+
+  def instructor_profile
   end
 
   def show
