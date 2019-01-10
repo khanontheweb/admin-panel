@@ -32,3 +32,7 @@ $('#students').on('changed.bs.select', function(e, clickedIndex, isSelected, pre
         clickedStudentOption.parentNode.removeChild(clickedStudentOption);
     }
 });
+
+$(document).on('turbolinks:load', function() {
+    $(window).trigger('load.bs.select.data-api');
+ });
