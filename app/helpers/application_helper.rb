@@ -65,3 +65,19 @@ end
 def get_enrolled_in(student)
   return Student.where(student_id: student.id).select("cohort_id")
 end
+
+def get_teaching(instructor)
+  return Instructor.where(instructor_id: instructor.id).select("cohort_id")
+end
+
+def instructor_salary(instructor)
+  if instructor.salary.nil?
+    @salary = number_to_currency(0, precision:2)
+  else
+    @salary = number_to_currency(instructor.salary, precision:2)
+  end
+end
+
+def get_taught_in_cohorts(course)
+  return Cohort.where(course_i: course.id)
+end

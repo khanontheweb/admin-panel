@@ -1,0 +1,73 @@
+<div class="container-fluid">
+  <!-- card for general stuff -->
+  <div class="row justify-content-center">
+    <div class="col-sm-6">
+      <div class="card">
+        <%= image_tag(@user.propic, width:100, class:"card-img-top" ) if @user.propic.attached? %>
+        <div class="card-body pb-0">
+          <div class="container">
+            <div class="row justify-content-between mb-2">
+              <div class="col text-left align-self-end">
+                <h4 class="card-title mb-0">
+                  <%=@user.first_name.upcase%> <%=@user.last_name.upcase%>
+                </h4>
+              </div>
+              <div class="col-sm-4 text-right align-self-end">
+                <%= link_to 'Edit', edit_user_path(@user), class: "btn btn-primary" %>
+              </div>
+            </div>
+            <div class="row justify-content-between mb-2">
+              <div class="col-sm-2 text-left align-self-end">
+                <p class="mb-0">Age: <%=@user.age%></p>
+              </div>
+              <div class="col text-right align-self-end">
+                <p class="mb-0">Email: <%=@user.email%></p>
+              </div>
+            </div>
+            <div class="row justify-content-between mb-2">
+              <div class="col-sm-4 text-left">
+                <p class="mb-0">Education: <%=education_level(@user)%> </p>
+              </div>
+              <div class="col-sm-4 text-right">
+                <p class="mb-0">User Type: <%=user_type(@user)%></p>
+              </div>
+            </div>
+
+            <div class="row justify-content-start">
+                <div class="col text-left align-self-end">
+                    <p class="mb-0">Salary: <%=instructor_salary(@user)%></p>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body pb-0">
+          <div class="container">
+
+            <div class="row justify-content-start text-left">
+              <div class="col text-left align-self-end">
+                <h4 class="card-title mb-0">Class List</h4>
+              </div>
+            </div>
+
+            <div class="row justify-content-start text-left">
+              <ul class="list-group list-group-flush">
+                <% get_teaching(@user).each do |cohort| %>
+                  <li class="list-group-item"><%=Cohort.find(cohort.cohort_id).name%></li>
+                <%end%>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row text-center">
+    <div class="col">
+      <%= link_to 'Edit', edit_user_path(@user) %> |
+      <%= link_to 'Back', users_path %>
+    </div>
+  </div>
