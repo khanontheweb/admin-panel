@@ -29,7 +29,7 @@
 
             <div class="collapse navbar-collapse" id="navbarAltMarkUp">
               <div class="navbar-nav">
-                <%= link_to(@curent_user, {class: "nav-item nav-link"} ) do %>
+                <%= link_to @current_user, class: "nav-item nav-link" do %>
                   <%= @current_user.first_name.upcase %>
                   <%= @current_user.last_name.upcase %>
                 <% end %>

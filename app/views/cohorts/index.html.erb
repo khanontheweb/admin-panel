@@ -20,7 +20,7 @@
       <%@cohorts.each do |cohort|%>
         <div class="row cohort-<%=cohort.id%>">
           <div class="col">
-            <%= link_to cohort.first_name, cohort, class: "user-link" %>
+            <%= link_to cohort.name, cohort, class: "user-link" %>
             <hr class="index-rule">
           </div>
         </div>

@@ -1,52 +1,58 @@
 <p id="notice"><%= notice %></p>
+<%= stylesheet_link_tag 'course_index' %>
 
-<h1>Courses</h1>
 
 <div class="container-fluid">
   <div class="row">
     <div class="col">
-      Name
+      <h1 class="d-inline">Couse List</h1>
+      <%= link_to(new_course_path, class: "btn btn-info btn-lg add-user-btn") do %>
+        Add Course
+        <i class="fas fa-discourse"></i>
+      <% end %> 
+      <hr class="list-rule mt-0 mb-4">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col pr-0">
+      NAME
+      <hr class="header-rule">
       <% @courses.each do |course| %>
         <div class="row course-<%=course.id%>">
           <div class="col">
-            <%=course.name%>
+            <%= link_to course.name, course, class:"user-link"%>
+            <hr class="index-rule">
           </div>
         </div>
       <% end %>
     </div>
-    <div class="col">
-      Hours
+    <div class="col px-0">
+      HOURS
+      <hr class="header-rule">
       <% @courses.each do |course| %>
         <div class="row course-<%=course.id%>">
           <div class="col">
             <%=course.hours%>
+            <hr class="index-rule">
           </div>
         </div>
       <% end %>
     </div>
-    <div class="col">
-      Options
+    <div class="col pl-0">
+      OPTIONS
+      <hr class="header-rule">
       <% @courses.each do |course| %>
         <div class="row course-<%=course.id%>">
           <div class="col">
-            <%= link_to 'Show', course %>
-            <%= link_to 'Edit', edit_course_path(course) %>
-            <%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' }, remote: true %>
+            <div class="btn-group">
+                <%= link_to 'Info', course, class: "btn btn-success opt-btn mr-2"%>
+                <%= link_to 'Edit', edit_course_path(course), class: "btn btn-warning opt-btn mr-2" %>
+                <%= link_to 'Destroy', course, class: "btn btn-danger opt-btn", method: :delete, data: { confirm: 'Are you sure?' }, remote: true %>
+            </div>
+            <hr class="index-rule">
           </div>
         </div>
       <% end %>
     </div>
   </div>
 </div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Hours</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-
-<%= link_to 'New Course', new_course_path %>
