@@ -4,15 +4,32 @@
 /*
 */
 
+
+
 .index-rule {
-    border-top: 1px dashed;
-    margin-left: 2px;
+    border-top: 1px dashed #000;
+    margin-left: 1px;
 }
 
 .header-rule {
     border:none;
     height: 2px;
-    background-color: #111;
+    background-color: #000;
+}
+
+.list-rule {
+    border-top: 1px dashed #000;
+}
+
+.add-user-btn {
+    margin-left: 77%;
+    margin-bottom: 1.5%;
+}
+
+.btn-group {
+    margin-bottom: -8%;
+    
+
 }
 
 

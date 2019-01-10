@@ -41,6 +41,9 @@ gem "bootstrap", ">= 4.0.0"
 #need jquery for boostrap
 gem 'jquery-rails'
 
+#bootstrap select
+gem 'bootstrap-select-rails'
+
 #google cloud storage
 gem "google-cloud-storage", "~> 1.8", require: false
 
