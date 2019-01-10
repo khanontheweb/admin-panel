@@ -4,7 +4,46 @@
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
-<%= image_tag(@user.propic, width:200 ) if @user.propic.attached? %>
+
+<div class="container-fluid">
+  <!-- card for general stuff -->
+  <div class="col-sm-6">
+    <div class="card">
+      <%= image_tag(@user.propic, width:100, class:"card-img-top" ) if @user.propic.attached? %>
+      <div class="card-body pb-0">
+        <div class="container">
+          <div class="row justify-content-between">
+            <div class="col text-left align-self-end">
+              <h4 class="card-title mb-0">
+                <%=@user.first_name.upcase%> <%=@user.last_name.upcase%>
+              </h4>
+            </div>
+            <div class="col-sm-4 text-right">
+              <%= link_to 'Edit', edit_user_path(@user), class: "btn btn-primary" %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body pt-0">
+        <div class="container">
+          <div class="row justify-content-between">
+            <div class="col-sm-2 text-left">
+              <p>Age: <%=@user.age%></p>
+            </div>
+            <div class="col text-right">
+              <p>Email: <%=@user.email%></p>
+            </div>
+          </div>
+          <div class="row"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    
+  </div>
+</div>
+
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
