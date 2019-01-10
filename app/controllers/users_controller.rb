@@ -36,8 +36,8 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         p "This is the  referer #{request.referer}"
-        #CHANGE THIS LATER FOR HEROKU PLS FOR ALL THAT IS HOLY or find a better hack
-        if request.referer == 'http://localhost:3000/' || request.referer == 'http://localhost:3000/signup'
+        #if the session id is not set then set it when you creature a user (ie login)
+        if session[:user_id].nil?
           session[:user_id] = @user.id
         end
         format.html {redirect_to @user, notice: 'User was successfully created.' }
